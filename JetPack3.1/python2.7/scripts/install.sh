@@ -56,7 +56,7 @@ dpkg --print-architecture
 # OpenCV用にCUDAヘッダーパッチ適用
 ########################################
 # OpenCV make中にエラーが発生するため、cudaヘッダを書き換えるパッチを当てる
-./cv_patch.sh
+./install_cv_patch.sh
 
 
 ########################################
