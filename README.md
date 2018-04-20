@@ -4,6 +4,12 @@
 > ssh ubuntu@192.168.x.x  
 
 ## 1. Setup before install
+
+> sudo su  
+> cd ${JETPACK_VERSION}/${PYTHON_VERSION}/scripts  
+> find ./ -type f | xargs -n1 sed -i "s/\r//g"  
+> chmod 755 *.sh  
+
 If you need SPI, please remove comment out from setup.sh.
 
 > sudo su  
