@@ -1,0 +1,20 @@
+### 1. Setup before install
+sudo su
+cd scripts/
+find ./ -type f | xargs -n1 sed -i "s/\r//g"  
+
+If you need SPI, please remove comment out from setup.sh.
+
+sudo su
+cd scripts/
+./setup.sh  
+
+wait reboot and re-login to TX2
+
+### 2. Install
+If you need to build from source, please remove comment out from install.sh
+
+sudo su
+cd scripts/
+./install.sh
+
