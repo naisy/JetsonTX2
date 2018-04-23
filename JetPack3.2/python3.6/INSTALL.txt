@@ -2,6 +2,7 @@
 sudo su
 cd scripts/
 find ./ -type f | xargs -n1 sed -i "s/\r//g"  
+chmod 755 *.sh
 
 If you need SPI, please remove comment out from setup.sh.
 
