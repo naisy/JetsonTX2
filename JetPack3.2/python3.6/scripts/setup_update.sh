@@ -8,7 +8,7 @@
 #WARNING: The following packages cannot be authenticated!
 #  libcudnn7-dev libcudnn7
 #E: There were unauthenticated packages and -y was used without --allow-unauthenticated
-
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F60F4B3D7FA2AF80
 apt-get update
 time apt-get dist-upgrade -y --allow-unauthenticated
 apt-get install -y htop
