@@ -20,9 +20,9 @@ Install OpenCV/Tensorflow on Jetson TX2.
 > find ./ -type f | xargs -n1 sed -i "s/\r//g"  
 > chmod 755 *.sh  
 >  
-> sudo su
+> sudo su  
 > ./setup.sh  
 
 ## 5. Install
-> sudo su
+> sudo su  
 > ./install.sh
