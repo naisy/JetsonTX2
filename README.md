@@ -13,16 +13,16 @@ Install OpenCV/Tensorflow on Jetson TX2.
 > git branch -r  
 
 ## 3. checkout branch
-> git checkout JetPack3.1_python3.6  
+> git checkout JetPack3.1_python2.7  
 
 ## 4. Setting before install
-> cd JetPack3.1/python3.6/scripts  
+> cd JetPack3.1/python2.7/scripts  
 > find ./ -type f | xargs -n1 sed -i "s/\r//g"  
 > chmod 755 *.sh  
 >  
-> sudo su
+> sudo su  
 > ./setup.sh  
 
 ## 5. Install
-> sudo su
-> ./install.sh
+> sudo su  
+> ./install.sh  
