@@ -17,8 +17,6 @@ apt autoremove -y
 ########################################
 # pip3 install
 ########################################
-# pip 10.0.1への更新後は、別shellでpipを実行しないとエラーになる。そのためpip更新は先に別shellで行っておく
-pip install --upgrade pip
 ./install_pip.sh
 
 

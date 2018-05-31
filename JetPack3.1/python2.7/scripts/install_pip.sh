@@ -4,6 +4,7 @@
 ########################################
 apt-get install -y python-pip python-yaml libjpeg-dev libxslt-dev libxml2-dev libffi-dev libcurl4-openssl-dev libssl-dev libblas-dev liblapack-dev gfortran libpng12-dev libfreetype6-dev
 
+pip install --upgrade pip==9.0.3
 pip install --upgrade setuptools
 pip install --upgrade numpy
 #pip install --upgrade scipy
