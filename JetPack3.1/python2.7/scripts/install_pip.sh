@@ -2,9 +2,14 @@
 ########################################
 # pip install
 ########################################
-apt-get install -y python-pip python-yaml libjpeg-dev libxslt-dev libxml2-dev libffi-dev libcurl4-openssl-dev libssl-dev libblas-dev liblapack-dev gfortran libpng12-dev libfreetype6-dev
+apt-get install -y libjpeg-dev libxslt-dev libxml2-dev libffi-dev libcurl4-openssl-dev libssl-dev libblas-dev liblapack-dev gfortran libpng12-dev libfreetype6-dev
 
-pip install --upgrade pip==9.0.3
+apt-get install -y curl
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python get-pip.py
+rm -rf get-pip.py
+
+pip install --upgrade pip
 pip install --upgrade setuptools
 pip install --upgrade numpy
 #pip install --upgrade scipy
@@ -21,7 +26,7 @@ pip install --upgrade smbus2
 pip install --upgrade spidev
 pip install --upgrade absl-py
 pip install --upgrade sympy
-#pip install --upgrade pyyaml
+pip install --upgrade pyyaml
 #pip install --upgrade cython
 #pip install --upgrade keras
 #pip install --upgrade h5py
