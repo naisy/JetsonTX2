@@ -4,7 +4,8 @@
 ########################################
 apt-get install -y python-pip python-yaml libjpeg-dev libxslt-dev libxml2-dev libffi-dev libcurl4-openssl-dev libssl-dev libblas-dev liblapack-dev gfortran libpng12-dev libfreetype6-dev
 
-pip install --upgrade pip
+# pip 10.0.1への更新後は、別shellでpipを実行しないとエラーになる。そのためpip更新は先に別shellで行っておく
+#pip install --upgrade pip
 pip install --upgrade setuptools
 pip install --upgrade numpy
 #pip install --upgrade scipy
