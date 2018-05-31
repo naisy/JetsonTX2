@@ -7,9 +7,9 @@ apt-get update
 ########################################
 # Python3.6 インストール
 ########################################
+# pipは10.0.1で構造が変わったため、インストールはpython3-pipではなく、公式の方法で行う
 apt-get install -y python3.6 python3.6-dev
 update-alternatives --install /usr/bin/python3 python /usr/bin/python3.6 0
-apt-get install -y python3-pip
 rm -rf /usr/bin/python && ln -s /usr/bin/python3.6 /usr/bin/python
 
 ########################################
