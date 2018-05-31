@@ -28,3 +28,9 @@ rm -rf /usr/bin/python && ln -s /usr/bin/python3.6 /usr/bin/python
 #! /usr/bin/python3.5
 
 sed -i 's/#! \/usr\/bin\/python3$/#! \/usr\/bin\/python3\.5/g' /usr/bin/add-apt-repository
+
+########################################
+# pip upgrade
+########################################
+# pip 10.0.1への更新後は、別shellでpipを実行しないとエラーになる。そのためpip更新は先に別shellで行っておく
+pip3 install --upgrade pip
