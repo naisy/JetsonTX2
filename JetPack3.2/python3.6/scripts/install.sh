@@ -4,13 +4,18 @@
 # sudo rm /usr/bin/python
 # sudo ln -s /usr/bin/python2.7 /usr/bin/python
 
+#real	84m26.179s
+#user	77m29.928s
+#sys	3m4.020s
+
+
 ########################################
 # Ubuntu 16.04 パッケージ更新
 ########################################
 apt-get update
-time apt-get dist-upgrade -y
+#time apt-get dist-upgrade -y
 apt-get install -y htop locate
-apt autoremove -y
+#apt autoremove -y
 
 
 ########################################
