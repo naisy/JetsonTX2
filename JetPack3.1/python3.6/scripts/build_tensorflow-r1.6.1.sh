@@ -1,11 +1,11 @@
 ########################################
-# TensorFlow r1.6.0
+# TensorFlow r1.6.1
 ########################################
 #real	260m59.500s
 #user	2m32.980s
 #sys	0m30.664s
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
-# TensorFlow r1.6.0 download
+# TensorFlow r1.6.1 download
 
 #Cuda compilation tools, release 9.0, V9.0.252
 #9.0.252
@@ -13,6 +13,10 @@ SCRIPT_DIR=$(cd $(dirname $0); pwd)
 mkdir -p /compile \
 && cd /compile \
 && git clone -b r1.6 https://github.com/tensorflow/tensorflow
+
+# 2018/06/06 add patch to solve new error.
+$SCRIPT_DIR/build_tensorflow_png_patch.sh
+$SCRIPT_DIR/build_tensorflow_macros_patch.sh
 
 # CUDA,CUDNNバージョン確認
 cat /usr/local/cuda/version.txt
@@ -62,7 +66,7 @@ time bazel build --config=cuda --config="opt" --copt='-march=native' --copt="-O3
 # 150 min
 
 mkdir -p $SCRIPT_DIR/../binary
-mv -f /tmp/tensorflow_pkg/tensorflow-1.6.0-cp36-cp36m-linux_aarch64.whl $SCRIPT_DIR/../binary
+mv -f /tmp/tensorflow_pkg/tensorflow-1.6.1-cp36-cp36m-linux_aarch64.whl $SCRIPT_DIR/../binary
 
 
 # benchmark
