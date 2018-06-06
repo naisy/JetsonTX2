@@ -78,7 +78,7 @@ apt-get install -y htop locate
 ########################################
 # TensorFlow r1.6.0
 ########################################
-#./build_tensorflow-r1.6.0.sh
+#./build_tensorflow-r1.6.1.sh
 ./install_tensorflow-r1.6.0.sh
 
 
