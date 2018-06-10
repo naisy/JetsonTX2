@@ -5,27 +5,28 @@
 #user	2m32.980s
 #sys	0m30.664s
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
-# TensorFlow r1.6.1 download
+# TensorFlow download
 
-#Cuda compilation tools, release 9.0, V9.0.252
-#9.0.252
+VERSION=1.6.1
+BRANCH=1.6
 
 mkdir -p /compile \
 && cd /compile \
-&& git clone -b r1.6 https://github.com/tensorflow/tensorflow
+&& git clone -b r${BRANCH} https://github.com/tensorflow/tensorflow
 
 # 2018/06/06 add patch to solve new error.
 $SCRIPT_DIR/build_tensorflow_png_patch.sh
 $SCRIPT_DIR/build_tensorflow_macros_patch.sh
 
-# CUDA,CUDNNバージョン確認
+# CUDA,CUDNN version check
+# JetPack/nvcc/CUDA/CUDNN
+# JetPack3.2/9.0.252/9.0.252/7.0.5
+# JetPack3.1/8.0.72/8.0.84/6.0.21
+#TF_CUDA_VERSION=8.0 (lib 8.0.84, nvcc 8.0.72)
+#TF_CUDNN_VERSION=6.0.21
 cat /usr/local/cuda/version.txt
 nvcc --version
 grep "#define CUDNN_MAJOR" -A2 /usr/include/cudnn.h
-#TF_CUDA_VERSION=8.0 (lib 8.0.84, nvcc 8.0.72)
-#TF_CUDNN_VERSION=6.0.21
-# CUDAはx.xまでを指定可能
-# CUDNNはx.x.xまで指定可能
 # find ./ -type f | xargs grep -nH -A 5 -B 5 TensorRT 
 # build/install Python API
 cd /compile/tensorflow
@@ -66,7 +67,7 @@ time bazel build --config=cuda --config="opt" --copt='-march=native' --copt="-O3
 # 150 min
 
 mkdir -p $SCRIPT_DIR/../binary
-mv -f /tmp/tensorflow_pkg/tensorflow-1.6.1-cp36-cp36m-linux_aarch64.whl $SCRIPT_DIR/../binary
+mv -f /tmp/tensorflow_pkg/tensorflow-${VERSION}-cp36-cp36m-linux_aarch64.whl $SCRIPT_DIR/../binary
 
 
 # benchmark
