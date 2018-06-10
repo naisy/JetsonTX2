@@ -62,7 +62,9 @@ env CI_BUILD_PYTHON=python \
 # IntelじゃないのでMKLは使わない
 time bazel build --config=cuda --config="opt" --copt='-march=native' --copt="-O3" --verbose_failures --subcommands //tensorflow/tools/pip_package:build_pip_package \
 && bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
-# 150 min
+#real    244m22.217s
+#user    0m1.792s
+#sys     0m2.600s
 
 mkdir -p $SCRIPT_DIR/../binary
 mv -f /tmp/tensorflow_pkg/tensorflow-${VERSION}-cp36-cp36m-linux_aarch64.whl $SCRIPT_DIR/../binary
