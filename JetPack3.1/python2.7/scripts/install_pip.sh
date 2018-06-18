@@ -21,13 +21,13 @@ pip install --upgrade futures
 pip install --upgrade Pillow
 #pip install --upgrade sklearn
 #pip install --upgrade tqdm
-#pip install --upgrade scikit-image
-pip install --upgrade smbus2
-pip install --upgrade spidev
+pip install --upgrade cython
+pip install --upgrade scikit-image
+#pip install --upgrade smbus2
+#pip install --upgrade spidev
 pip install --upgrade absl-py
-pip install --upgrade sympy
+#pip install --upgrade sympy
 pip install --upgrade pyyaml
-#pip install --upgrade cython
 #pip install --upgrade keras
 #pip install --upgrade h5py
 
