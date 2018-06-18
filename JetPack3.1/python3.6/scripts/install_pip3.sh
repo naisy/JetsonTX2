@@ -28,12 +28,12 @@ pip3 install --upgrade futures
 pip3 install --upgrade Pillow
 #pip3 install --upgrade sklearn
 #pip3 install --upgrade tqdm
-#pip3 install --upgrade scikit-image
-pip3 install --upgrade smbus2
-pip3 install --upgrade spidev
+pip3 install --upgrade cython
+pip3 install --upgrade scikit-image
+#pip3 install --upgrade smbus2
+#pip3 install --upgrade spidev
 pip3 install --upgrade absl-py
-pip3 install --upgrade sympy
+#pip3 install --upgrade sympy
 pip3 install --upgrade pyyaml
-#pip3 install --upgrade cython
 
 #pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip3 install -U
