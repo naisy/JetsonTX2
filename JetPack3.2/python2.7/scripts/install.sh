@@ -61,7 +61,7 @@ dpkg --print-architecture
 # OpenCV 3.4.1 パッケージ作成/インストール
 ########################################
 #./build_opencv-3.4.1.sh
-#./install_opencv-3.4.1.sh
+./install_opencv-3.4.1.sh
 
 
 ########################################
