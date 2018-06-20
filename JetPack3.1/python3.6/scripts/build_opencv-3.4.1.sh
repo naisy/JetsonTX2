@@ -1,21 +1,29 @@
 ########################################
 # OpenCV 3.4.1 パッケージ作成/インストール
 ########################################
+# NEED 15GB disk space with contrib
+#real	70m21.338s
+#user	348m48.396s
+#sys	15m22.812s
+
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 # cudaコンパイラのnvccは-std=c++11を扱えないのでFLAGを立てないこと
 
 apt-get install -y build-essential cmake libeigen3-dev libatlas-base-dev gfortran git wget libavformat-dev libavcodec-dev libswscale-dev libavresample-dev ffmpeg pkg-config unzip qtbase5-dev libgtk-3-dev libdc1394-22 libdc1394-22-dev libjpeg-dev libpng12-dev libtiff5-dev libjasper-dev libavcodec-dev libavformat-dev libswscale-dev libxine2-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libv4l-dev libtbb-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev v4l-utils liblapacke-dev libopenblas-dev checkinstall libgdal-dev libgphoto2-dev
 
+SOURCE_PATH=/media/ubuntu/SSD250/compile
 
-mkdir -p /compile \
-&& cd /compile \
+mkdir -p ${SOURCE_PATH} \
+&& cd ${SOURCE_PATH} \
 && wget --no-check-certificate https://github.com/opencv/opencv/archive/3.4.1.zip \
 && unzip 3.4.1.zip \
+&& wget https://github.com/opencv/opencv_contrib/archive/3.4.1.zip -O opencv_contrib-3.4.1.zip \
+&& unzip opencv_contrib-3.4.1.zip \
 && mkdir -p opencv-3.4.1/build \
 && cd opencv-3.4.1/build
 
 # WITH_TBBをOFFにする
-time cmake -D CMAKE_C_FLAGS="-std=c11 -march=native" -D CMAKE_CXX_FLAGS="-march=native" -D ENABLE_CXX11=ON -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/package_build/opencv-3.4.1/usr/local -D WITH_TBB=OFF -D WITH_V4L=ON -D WITH_QT=ON -D WITH_OPENGL=ON -D WITH_CUBLAS=ON -D WITH_CUDA=ON -D CUDA_ARCH_BIN="6.2" -D CUDA_ARCH_PTX="6.2" -D ENABLE_FAST_MATH=ON -D CUDA_FAST_MATH=ON -D CUDA_NVCC_FLAGS="-D_FORCE_INLINES" -D CUDA_CUDA_LIBRARY=/usr/lib/aarch64-linux-gnu/libcuda.so -D WITH_GDAL=ON -D WITH_XINE=ON -D BUILD_EXAMPLES=ON -D PYTHON3_EXECUTABLE=/usr/bin/python3 -D PYTHON_INCLUDE_DIR=/usr/include/python3.6 -D PYTHON_INCLUDE_DIR2=/usr/include/aarch64-linux-gnu/python3.6m -D PYTHON_LIBRARY=/usr/lib/aarch64-linux-gnu/libpython3.6m.so -D PYTHON3_NUMPY_INCLUDE_DIRS=/usr/local/lib/python3.6/dist-packages/numpy/core/include/ ..
+time cmake -D CMAKE_C_FLAGS="-std=c11 -march=native" -D CMAKE_CXX_FLAGS="-march=native" -D ENABLE_CXX11=ON -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/package_build/opencv-3.4.1/usr/local -D WITH_TBB=OFF -D WITH_V4L=ON -D WITH_QT=ON -D WITH_OPENGL=ON -D WITH_CUBLAS=ON -D WITH_CUDA=ON -D CUDA_ARCH_BIN="6.2" -D CUDA_ARCH_PTX="6.2" -D ENABLE_FAST_MATH=ON -D CUDA_FAST_MATH=ON -D CUDA_NVCC_FLAGS="-D_FORCE_INLINES" -D CUDA_CUDA_LIBRARY=/usr/lib/aarch64-linux-gnu/libcuda.so -D WITH_GDAL=ON -D WITH_XINE=ON -D BUILD_EXAMPLES=ON -D PYTHON3_EXECUTABLE=/usr/bin/python3 -D PYTHON_INCLUDE_DIR=/usr/include/python3.6 -D PYTHON_INCLUDE_DIR2=/usr/include/aarch64-linux-gnu/python3.6m -D PYTHON_LIBRARY=/usr/lib/aarch64-linux-gnu/libpython3.6m.so -D PYTHON3_NUMPY_INCLUDE_DIRS=/usr/local/lib/python3.6/dist-packages/numpy/core/include/ -D OPENCV_EXTRA_MODULES_PATH=${SOURCE_PATH}/opencv_contrib-3.4.1/modules ..
 
 time make install -j $(($(nproc) + 1))
 
